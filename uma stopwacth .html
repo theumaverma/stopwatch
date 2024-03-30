@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<style type="text/css">
+
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+    body{
+        background: green;
+       }
+        h1{
+      display: flex;
+      justify-content: center;
+      font-size: 40px;
+        background: blue;
+        color: deeppink;
+    }
+  .stopwatch{
+    margin-top: 100px;
+     margin-left: 70px;
+    display: flex;
+     gap: 2rem;
+     height: 50px;
+     font-size: 100px;
+     color: #c0c0c0;
+     justify-content: center;
+  }
+    
+
+    #btn{
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    padding-left: 30px;
+    width: 100%;
+    height: 5vh;
+    }
+    .abc{
+    background: red;
+    height: 40px;
+    width: 60px;
+    border-color: red;
+    }
+    .def{
+        background: lightpink;
+          height: 40px;
+    width: 60px;
+    border-color: lightpink;
+    }
+    .fgh{
+        background: blue;
+          height: 40px;
+    width: 60px;
+    border-color: blue;
+    }
+</style>
+
+
+
+</head>
+<body>
+    <h1>stop watch</h1>
+    <div class="stopwatch">
+<div id="hr">00</div>
+    <div id="min">00</div>
+    <div id="sec">00</div>
+    </div>
+
+    
+    <div id="btn">
+    <button class="abc" onclick="startwatch()">Start</button>
+    <button  class="def" onclick="stop()">Stop</button>
+    <button class="fgh" onclick="reset()">Reset</button>
+    </div>
+    
+    <script>
+        let hr = document.getElementById('hr');
+        let min = document.getElementById('min');
+        let sec  = document.getElementById('sec');
+        let i_hr = 0;
+        let i_min = 0;
+        let i_sec = 0;
+
+        const stopwatch = () => {
+            return start = setInterval(()=>{
+                i_sec++;
+                sec.innerText = i_sec;
+                if(i_sec >= 59){
+                    i_sec = 0;
+                    i_min++;
+                    min.innerHTML = i_min;
+                    if(i_min>=59){
+                        i_min = 0;
+                        i_hr++;
+                        hr.innerHTML = i_hr;
+                    }
+                }
+
+                if(i_sec < 10){
+                    sec.innerText = `0${i_sec}`;
+                }
+                
+                if(i_min < 10) {
+                    min.innerText = `0${i_min}`;
+                }
+                
+                if(i_hr < 10){
+                    hr.innerText = `0${hr_min}`;
+                }
+            },1000)
+        }
+
+        const startwatch = () => {
+            stopwatch();
+        }
+
+        const stop = () => {
+            clearInterval(start);
+        }
+        
+        const reset = () => {
+            clearInterval(start);
+            i_hr=0;
+            i_min=0;
+            i_sec=0;
+            hr.innerHTML = "00";
+            min.innerHTML = "00";
+            sec.innerHTML = '00';
+        }
+    </script>
+</body>
+</html>
